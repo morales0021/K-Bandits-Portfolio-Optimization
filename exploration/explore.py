@@ -16,7 +16,6 @@ class explore:
         self.rets_compo = np.zeros(sims)
         self.rets_added = np.zeros(sims)
         self.df_sim = pd.DataFrame()
-
         for k in range(sims):
             try:
                 rewards,Q,N = self.method(**kwargs)
@@ -30,4 +29,5 @@ class explore:
                 self.df_sim = pd.concat([self.df_sim,df_rwd], axis = 1)
             
             except Exception as e :
-                pdb.set_trace()
+                print(e)
+                continue
